@@ -93,7 +93,7 @@ transform-style: preserve-3d;
     height: 40px;
     background-color: rgba(255,255,255,0.171);
     border-radius: 50%;
-    animation: cubeShadow 1s ease-in-out infinite alternate;
+    animation: cubeShadow 2zs ease-in-out infinite alternate;
     filter: blur(3px);
 }
 
@@ -113,7 +113,7 @@ transform-style: preserve-3d;
 .homeSkillsBox > svg{
     font-size: 5vmax;
     color: rgb(255, 255, 255);
-    transition: all 0.5s;
+    transition: all 1s;
     margin: 10px;
 }
 

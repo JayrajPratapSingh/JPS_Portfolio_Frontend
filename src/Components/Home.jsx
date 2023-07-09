@@ -174,11 +174,11 @@ const Home = () => {
                     </div>
 
                     <div className='homeCubeSkillsFaces homeCubeSkillsFaces3'>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMX7p-_Zo1LqsEfO1v3B6Zw0Jgvhk4vo1fKA&usqp=CAU" alt="face3" />
+                        <img src="https://www.techrepublic.com/wp-content/uploads/2022/07/html-css-beginners.jpg?x27457" alt="face3" />
                     </div>
 
                     <div className='homeCubeSkillsFaces homeCubeSkillsFaces4'>
-                        <img src="https://ih1.redbubble.net/image.571913602.7102/st,small,845x845-pad,1000x1000,f8f8f8.u4.jpg" alt="face4" />
+                        <img src="https://www.chrisjmendez.com/content/images/size/w1200/2018/12/ExpressJS.jpg" alt="face4" />
                     </div>
 
                     <div className='homeCubeSkillsFaces homeCubeSkillsFaces5'>
