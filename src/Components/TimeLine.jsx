@@ -8,20 +8,20 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import { Event } from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
-const TimeLine = ({ timelines = [] }) => {
+const TimeLine = ({timelines=[]}) => {
   return (
     <div>
       <Timeline position="alternate">
         {
         timelines.map((item, index) => (
-          <TimelineItem key={index}>
+          <TimelineItem key={timelines._id}>
             <TimelineOppositeContent
             sx={{m:"auto 0"}}
             align="right"
             variant="body2"
             color="text.secondary"
             >
-                5/7/2023
+                {item.date.toString().split("T")[0]}
             </TimelineOppositeContent>
             <TimelineSeparator>
                 <TimelineConnector />
@@ -32,8 +32,8 @@ const TimeLine = ({ timelines = [] }) => {
               </TimelineDot>
             </TimelineSeparator>
             <TimelineContent sx={{py:"12 px", px:2 }}>
-              <Typography variant="h6"> `Title ${item}`</Typography>
-              <Typography>Description</Typography>
+              <Typography variant="h6"> {item.title}</Typography>
+              <Typography>{item.description}</Typography>
             </TimelineContent>
           </TimelineItem>
         ))

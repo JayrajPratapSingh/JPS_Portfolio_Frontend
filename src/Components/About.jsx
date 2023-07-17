@@ -1,27 +1,27 @@
 import React from 'react'
 import "../Style/About.css"
 import {Typography} from "@mui/material"
-import avatar from "../assets/avatar.PNG"
-const About = () => {
+const About = ({about}) => {
     return (
         <div className='about'>
             <div className="aboutContainer">
                 <Typography>
-                    This is a sample Quote
+                    {about.quote}
                 </Typography>
             </div>
             <div className="aboutContainer2">
                 <div>
-                    <img src={avatar} alt="jayraj" className='aboutAvatar'/>
-                <Typography variant='h4' style={{margin:"1vmx"}}>Jayraj Pratap Singh</Typography>
-                    <Typography >Full Stack MERN Developer</Typography>
+                    <img src={about.avatar.url} alt="jayraj" className='aboutAvatar'/>
+                <Typography variant='h4' style={{margin:"1vmx"}}>{about.name}</Typography>
+                    <Typography >{about.title}</Typography>
+                    <Typography variant='' style={{margin:"1vmax 0", textAlign:"center", fontFamily:"sans-serif", fontSize:"1.2rem"}}>{about.subtitle}</Typography>
                 </div>
                 <div>
                     
                     <Typography
                     className='aboutDescription'
                     >
-                        This is description Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel ab exercitationem consequatur rerum voluptatum delectus
+                        {about.description}
                     </Typography>
 
                 </div>

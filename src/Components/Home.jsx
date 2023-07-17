@@ -8,6 +8,7 @@ import sunImg from "../assets/sun.jpg"
 import spaceImg from "../assets/space.webp"
 import {Typography} from "@mui/material/"
 import  TimeLine  from './TimeLine';
+import {Link} from "react-router-dom"
 
 //importing react Icons
 
@@ -24,8 +25,10 @@ import {
 }
  from "react-icons/si"
 import YoutubeCard from './YoutubeCard';
+import { MouseOutlined } from '@mui/icons-material';
 
-const Home = () => {
+
+const Home = ({timelines,youtubes,skills}) => {
     useEffect(()=>{
         //Adding image to Create 3d Texture
 
@@ -151,14 +154,52 @@ const Home = () => {
         renderer.render(scene, camera)
         }
         animateSun()
+
+        return window.addEventListener("scroll", (e)=>{
+            camera.rotation.z=window.scrollY*0.001
+
+            camera.rotation.y=window.scrollY*0.003
+            const skillsBox = document.getElementById("homeSkillsBox");
+            if(window.scrollY > 1100){
+                skillsBox.style.animationName= "homeSkillsBoxAnimationOn"
+            }
+            else{
+                skillsBox.style.animationName= "homeSkillsBoxAnimationOff"
+
+            }
+        })
     },[])
     
     return (
         <div className="home">
-            <canvas className='homeCanvas'></canvas>
+            <canvas className='homeCanvas'>
+                
+            </canvas>
+
+            <div className="homeCanvasContainer">
+                <Typography variant="h1">
+                    <p>J</p>
+                    <p>A</p>
+                    <p>Y</p>
+                    <p>R</p>
+                    <p>A</p>
+                    <p>J</p>
+                </Typography>
+                <div className="homeCanvasBox">
+                <Typography variant="h2">DESINER</Typography>
+                <Typography variant="h2">DEVELOPER</Typography>
+                <Typography variant="h2">MERN</Typography>
+                <Typography variant="h2">CONTENT CREACTER</Typography>
+                </div>
+                <Link to="/projects" >View Projects</Link>
+                </div>
+
+                <div className="homeScrollBtn">
+                    <MouseOutlined />
+                </div>
             <div className="homeContainer">
                     <Typography variant="h3">TIMELINE</Typography>
-                    <TimeLine timelines={[1,2,3,4]} />
+                    <TimeLine timelines={timelines} />
                     
             </div>
 
@@ -166,34 +207,34 @@ const Home = () => {
                 <Typography variant="h3">Skills</Typography>
                 <div className="homeCubeSkills">
                     <div className='homeCubeSkillsFaces homeCubeSkillsFaces1'>
-                        <img src="https://www.html.it/app/uploads/2016/02/javascript-1.png" alt="face1" />
+                        <img src={skills.image1.url} alt="face1" />
                     </div>
 
                     <div className='homeCubeSkillsFaces homeCubeSkillsFaces2'>
-                        <img src="https://nimishprabhu.com/wp-content/uploads/2021/07/react-logo.png" alt="face2" />
+                        <img src={skills.image2.url} alt="face2" />
                     </div>
 
                     <div className='homeCubeSkillsFaces homeCubeSkillsFaces3'>
-                        <img src="https://www.techrepublic.com/wp-content/uploads/2022/07/html-css-beginners.jpg?x27457" alt="face3" />
+                        <img src={skills.image3.url} alt="face3" />
                     </div>
 
                     <div className='homeCubeSkillsFaces homeCubeSkillsFaces4'>
-                        <img src="https://www.chrisjmendez.com/content/images/size/w1200/2018/12/ExpressJS.jpg" alt="face4" />
+                        <img src={skills.image4.url} alt="face4" />
                     </div>
 
                     <div className='homeCubeSkillsFaces homeCubeSkillsFaces5'>
-                        <img src="https://res.cloudinary.com/hevo/image/upload/v1626694700/hevo-blog/MongoDB-sm-logo-500x400-1-1.gif" alt="face5" />
+                        <img src={skills.image5.url} alt="face5" />
                     </div>
 
                     <div className='homeCubeSkillsFaces homeCubeSkillsFaces6'>
-                        <img src="https://miro.medium.com/v2/resize:fit:760/1*oUH0ByyW-KOtLe1jAL2GqA.png" alt="face6" />
+                        <img src={skills.image6.url} alt="face6" />
                     </div>
 
                 </div>
 
                 <div className="cubeShadow"></div>
 
-                <div className="homeSkillsBox">
+                <div className="homeSkillsBox" id="homeSkillsBox">
                     <SiCplusplus />
                     <SiHtml5 />
                     <SiCss3 />
@@ -212,23 +253,17 @@ const Home = () => {
                 </Typography>
 
                 <div className="homeYoutubeWrapper">
-                    <YoutubeCard image={"https://ih1.redbubble.net/image.571913602.7102/st,small,845x845-pad,1000x1000,f8f8f8.u4.jpg"}
-                    title="Sample Video"
-                    />
-
-<YoutubeCard image={"https://ih1.redbubble.net/image.571913602.7102/st,small,845x845-pad,1000x1000,f8f8f8.u4.jpg"}
-                    title="Sample Video"
-                    />
-
-<YoutubeCard image={"https://ih1.redbubble.net/image.571913602.7102/st,small,845x845-pad,1000x1000,f8f8f8.u4.jpg"}
-                    title="Sample Video"
-                    />
-
-<YoutubeCard image={"https://ih1.redbubble.net/image.571913602.7102/st,small,845x845-pad,1000x1000,f8f8f8.u4.jpg"}
-                    title="Sample Video"
-                    />
-
-
+                    {
+                        youtubes.map((item)=>(
+                            <YoutubeCard 
+                            key={item._id}
+                            image={item.image.url}
+                            title={item.title}
+                            url={item.url}
+                            id={item._id}
+                            />
+                        ))
+                    }
                 </div>
             </div>
         </div>

@@ -5,8 +5,8 @@ import ProjectCard from './ProjectCard';
 import "../Style/projects.css"
 import {FaRegSmileWink} from "react-icons/fa"
 
-const Projects = () => {
-    const projects = [1,2,3]
+const Projects = ({projects}) => {
+    
     return (
         <div className='projects'>
             <Typography variant='h3' >
@@ -14,13 +14,13 @@ const Projects = () => {
             </Typography>
         <div className="projectWrapper">
                 {
-                projects.map((projects,index)=>(
-                    <ProjectCard url="https://github.com/JayrajPratapSingh" ProjectImage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF0LziPvIZX_zyAdbDPtnrTKW-OyJRBFGhtlLg7k8&s" ProjectTitle="sample project" description="This is a sample project dsafljalskdfj lkjdfldk ldf sd flsd " technologies="Mongodb, React, NodeJs, Express" />
+                projects.map((projects)=>(
+                    <ProjectCard key={projects._id} url={projects.url} ProjectImage={projects.image.url} ProjectTitle={projects.title} description={projects.description} technologies={projects.techStack} id={projects._id} />
                 ))}
             </div>
-
+           
             <Typography variant='h3' style={{font:"100 1.2rem 'Ubuntu Mono'"}}>
-                All The Projects Shown Above Are Made By Me <FaRegSmileWink />
+                All The Projects Shown Above Are Made By Me <FaRegSmileWink/>
             </Typography>
         </div>
     )
