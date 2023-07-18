@@ -1,6 +1,7 @@
 
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import Loader from "./Components/Loader"
 import Home from './Components/Home';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
@@ -15,6 +16,7 @@ import AdminPannel from './Components/AdminPannel';
 import AdminTimeline from './Components/AdminTimeline';
 import AdminYoutube from './Components/AdminYoutube';
 import AdminProject from './Components/AdminProject';
+
 function App() {
   const dispatch  = useDispatch();
 
@@ -32,7 +34,7 @@ function App() {
   return (
     <div className="App">
      <Router>
-      {loading?<div>Loading</div>:(
+      {loading?<Loader />:(
         <>
         <Header />
       <Routes>

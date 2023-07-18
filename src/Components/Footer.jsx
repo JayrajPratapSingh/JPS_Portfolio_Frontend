@@ -15,7 +15,9 @@ const Footer = () => {
 
             <Link to="/contact" className='footerContactBtn'>
                 <Typography >Contact Me</Typography>
+                
             </Link>
+            <Typography style={{color:"white", fontFamily:"Roboto",fontSize:"1rem"}} variant=''>Email : jairaj273310@gmail.com</Typography>
         </div>
 
         <div>
@@ -38,6 +40,7 @@ const Footer = () => {
             <a className='anchor' href="https://www.linkedin.com/in/jairaj-pratap-singh-457712193/" target='blank'>
                 <BsLinkedin />
             </a>
+            
         </div>
         </div>
     )

@@ -165,7 +165,6 @@ const Home = ({timelines,youtubes,skills}) => {
             }
             else{
                 skillsBox.style.animationName= "homeSkillsBoxAnimationOff"
-
             }
         })
     },[])
