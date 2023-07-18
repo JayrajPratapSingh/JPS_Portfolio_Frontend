@@ -1,4 +1,5 @@
 import axios from "axios"
+import { BASE_URL } from "../services/helper";
 
 export const getUser = () => async(dispatch)=>{
     try{
@@ -7,7 +8,7 @@ export const getUser = () => async(dispatch)=>{
 
     })
     
-    const {data} = await axios.get("/api/v1/user");
+    const {data} = await axios.get(`${BASE_URL}/api/v1/user`);
 
     dispatch({
         type:"GET_USER_SUCESS",
@@ -30,7 +31,7 @@ export const login = (email,password) => async(dispatch)=>{
         type:"LOGIN_REQUEST",
     })
     
-    const {data} = await axios.post("/api/v1/login",{
+    const {data} = await axios.post(`${BASE_URL}/api/v1/login`,{
         email,password
     },{
         headers:{
@@ -61,7 +62,7 @@ export const logout = () => async(dispatch)=>{
 
     })
     
-    const {data} = await axios.get("/api/v1/logout")
+    const {data} = await axios.get(`${BASE_URL}/api/v1/logout`)
 
     dispatch({
         type:"LOGOUT_SUCESS",
@@ -85,7 +86,7 @@ export const loadUser = () => async(dispatch)=>{
 
     })
     
-    const {data} = await axios.get("/api/v1/me")
+    const {data} = await axios.get(`${BASE_URL}/api/v1/me`)
 
     dispatch({
         type:"LOAD_USER_SUCESS",
@@ -108,7 +109,7 @@ export const updateUser = (name,email,password,skills, about ) => async(dispatch
         type:"UPDATE_USER_REQUEST",
     })
     
-    const {data} = await axios.put("/api/v1/admin/update",{
+    const {data} = await axios.put(`${BASE_URL}/api/v1/admin/update`,{
         name,email,password,skills, about
     },{
         headers:{
@@ -138,7 +139,7 @@ export const addTimeline = (title, description, date) => async(dispatch)=>{
         type:"ADD_TIMELINE_REQUEST",
     });
     
-    const {data} = await axios.post("/api/v1/admin/timeline/add",{
+    const {data} = await axios.post(`${BASE_URL}/api/v1/admin/timeline/add`,{
         title, description, date
     },{
         headers:{
@@ -168,7 +169,7 @@ export const  deleteTimeline = (id) => async(dispatch)=>{
         type:"DELETE_TIMELINE_REQUEST",
     });
     
-    const {data} = await axios.delete(`/api/v1/admin/timeline/${id}`)
+    const {data} = await axios.delete(`${BASE_URL}/api/v1/admin/timeline/${id}`)
 
 
     dispatch({
@@ -191,7 +192,7 @@ export const addYoutube = (title, url, image) => async(dispatch)=>{
         type:"ADD_YOUTUBE_REQUEST",
     });
     
-    const {data} = await axios.post("/api/v1/admin/youtube/add",{
+    const {data} = await axios.post(`${BASE_URL}/api/v1/admin/youtube/add`,{
         title, url, image
     },{
         headers:{
@@ -221,7 +222,7 @@ export const  deleteYoutube = (id) => async(dispatch)=>{
         type:"DELETE_YOUTUBE_REQUEST",
     });
     
-    const {data} = await axios.delete(`/api/v1/admin/youtube/${id}`)
+    const {data} = await axios.delete(`${BASE_URL}/api/v1/admin/youtube/${id}`)
 
 
     dispatch({
@@ -246,7 +247,7 @@ export const addProject = (title, url, image, description, techStack) => async(d
         type:"ADD_PROJECT_REQUEST",
     });
     
-    const {data} = await axios.post("/api/v1/admin/project/add",{
+    const {data} = await axios.post(`${BASE_URL}/api/v1/admin/project/add`,{
         title, url, image, description, techStack
     },{
         headers:{
@@ -276,7 +277,7 @@ export const  deleteProject = (id) => async(dispatch)=>{
         type:"DELETE_PROJECT_REQUEST",
     });
     
-    const {data} = await axios.delete(`/api/v1/admin/project/${id}`)
+    const {data} = await axios.delete(`${BASE_URL}/api/v1/admin/project/${id}`)
 
 
     dispatch({
@@ -300,7 +301,7 @@ export const ContactUs = (name, email, message) => async(dispatch)=>{
         type:"CONTACT_US_REQUEST",
     });
     
-    const {data} = await axios.post("/api/v1/contact",{
+    const {data} = await axios.post(`${BASE_URL}/api/v1/contact`,{
       name, email, message
     },{
         headers:{
