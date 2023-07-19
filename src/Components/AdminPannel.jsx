@@ -120,11 +120,11 @@ const AdminPannel = () => {
                 </Typography>
 
                 <form onSubmit={submitHandler}>
-                    <input type="text" className='adminPanelInput' placeholder='Name' value={name} onChange={(e)=>setName(e.target.valueAsDate)} />
+                    <input type="text" className='adminPanelInput' placeholder='Name' value={name} onChange={(e)=>setName(e.target.value)} />
 
-                    <input type="email" className='adminPanelInput' placeholder='Email' value={email} onChange={(e)=>setEmail(e.target.valueAsDate)} />
+                    <input type="email" className='adminPanelInput' placeholder='Email' value={email} onChange={(e)=>setEmail(e.target.value)} />
 
-                    <input type="password" className='adminPanelInput' placeholder='Password' value={password} onChange={(e)=>setPassword(e.target.valueAsDate)} />
+                    <input type="password" className='adminPanelInput' placeholder='Password' value={password} onChange={(e)=>setPassword(e.target.value)} />
 
 
                     <div className='adminPanelSkills'>

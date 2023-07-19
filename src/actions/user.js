@@ -4,10 +4,9 @@ export const getUser = () => async(dispatch)=>{
     try{
     dispatch({
         type:"GET_USER_REQUEST",
-
     })
     
-    const {data} = await axios.get(`${BASE_URL}/api/v1/user`);
+    const {data} = await axios.get(`${BASE_URL}/api/v1/user`, {withCredentials:true});
 
     dispatch({
         type:"GET_USER_SUCESS",
@@ -36,7 +35,7 @@ export const login = (email,password) => async(dispatch)=>{
         headers:{
             "Content-Type":"application/json",
         },
-        withCredentials:true
+        withCredentials:true,
     })
 
     // const data = fetch(`${BASE_URL}/api/v1/login`,{
@@ -63,6 +62,7 @@ export const login = (email,password) => async(dispatch)=>{
         })
     
     }
+    
 }
 
 
