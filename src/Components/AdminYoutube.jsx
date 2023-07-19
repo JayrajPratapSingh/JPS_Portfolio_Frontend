@@ -88,7 +88,7 @@ const AdminYoutube = () => {
                 </form>
                 <div className='adminPanelYoutubeVideos'>
                     {user && user.youtube && user.youtube.map((item)=>(
-                        <YoutubeCard  key={item._id} link={item.url} title={item.title} image={item.image.url} isAdimn={true} id={item._id} />
+                        <YoutubeCard  key={item._id} link={item.url} title={item.title} image={item.image.url} isAdimn={true} id={item._id} isAdmin={true} />
                     ))}
                 </div>
             </div>

@@ -8,7 +8,8 @@ import { deleteProject, getUser } from '../actions/user';
 export const ProjectCard = ({id, url, ProjectImage, ProjectTitle, description, technologies, isAdmin=false}) => {
   const  dispatch = useDispatch();
  const deleteHandler = async(id)=>{
-await dispatch(deleteProject(id))
+await dispatch(
+    deleteProject(id))
 dispatch(getUser());
 }
     return (

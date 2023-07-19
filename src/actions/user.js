@@ -1,6 +1,5 @@
-import axios from "axios"
+import axios from "axios" 
 import { BASE_URL } from "../services/helper";
-
 export const getUser = () => async(dispatch)=>{
     try{
     dispatch({
@@ -36,8 +35,20 @@ export const login = (email,password) => async(dispatch)=>{
     },{
         headers:{
             "Content-Type":"application/json",
-        }
+        },
+        withCredentials:true
     })
+
+    // const data = fetch(`${BASE_URL}/api/v1/login`,{
+    //     method:"POST",
+    //     headers:{
+    //         "Accept":"application/json",
+    //         "Content-Type":"application/json",
+    //     },
+    //     body:JSON.stringify({email,password})
+    // }).then(res=>res.json()).then(data=>console.log(data))
+
+
 
     dispatch({
         type:"LOGIN_SUCESS",
@@ -62,7 +73,7 @@ export const logout = () => async(dispatch)=>{
 
     })
     
-    const {data} = await axios.get(`${BASE_URL}/api/v1/logout`)
+    const {data} = await axios.get(`${BASE_URL}/api/v1/logout`,{withCredentials:true})
 
     dispatch({
         type:"LOGOUT_SUCESS",
@@ -86,7 +97,7 @@ export const loadUser = () => async(dispatch)=>{
 
     })
     
-    const {data} = await axios.get(`${BASE_URL}/api/v1/me`)
+    const {data} = await axios.get(`${BASE_URL}/api/v1/me`,{withCredentials:true})
 
     dispatch({
         type:"LOAD_USER_SUCESS",
@@ -114,7 +125,8 @@ export const updateUser = (name,email,password,skills, about ) => async(dispatch
     },{
         headers:{
             "Content-Type":"application/json",
-        }
+        },
+        withCredentials:true
     })
 
     dispatch({
@@ -144,7 +156,8 @@ export const addTimeline = (title, description, date) => async(dispatch)=>{
     },{
         headers:{
             "Content-Type":"application/json",
-        }
+        },
+        withCredentials:true
     })
 
 
@@ -169,7 +182,7 @@ export const  deleteTimeline = (id) => async(dispatch)=>{
         type:"DELETE_TIMELINE_REQUEST",
     });
     
-    const {data} = await axios.delete(`${BASE_URL}/api/v1/admin/timeline/${id}`)
+const {data} = await axios.delete(`${BASE_URL}/api/v1/admin/timeline/${id}`,{withCredentials:true})
 
 
     dispatch({
@@ -197,7 +210,8 @@ export const addYoutube = (title, url, image) => async(dispatch)=>{
     },{
         headers:{
             "Content-Type":"application/json",
-        }
+        },
+        withCredentials:true
     })
 
 
@@ -222,7 +236,7 @@ export const  deleteYoutube = (id) => async(dispatch)=>{
         type:"DELETE_YOUTUBE_REQUEST",
     });
     
-    const {data} = await axios.delete(`${BASE_URL}/api/v1/admin/youtube/${id}`)
+    const {data} = await axios.delete(`${BASE_URL}/api/v1/admin/youtube/${id}`,{withCredentials:true})
 
 
     dispatch({
@@ -252,7 +266,8 @@ export const addProject = (title, url, image, description, techStack) => async(d
     },{
         headers:{
             "Content-Type":"application/json",
-        }
+        },
+        withCredentials:true
     })
 
 
@@ -277,7 +292,7 @@ export const  deleteProject = (id) => async(dispatch)=>{
         type:"DELETE_PROJECT_REQUEST",
     });
     
-    const {data} = await axios.delete(`${BASE_URL}/api/v1/admin/project/${id}`)
+    const {data} = await axios.delete(`${BASE_URL}/api/v1/admin/project/${id}`,{withCredentials:true})
 
 
     dispatch({
@@ -306,7 +321,8 @@ export const ContactUs = (name, email, message) => async(dispatch)=>{
     },{
         headers:{
             "Content-Type":"application/json",
-        }
+        },
+        withCredentials:true
     })
 
     dispatch({

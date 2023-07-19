@@ -159,13 +159,15 @@ const Home = ({timelines,youtubes,skills}) => {
             camera.rotation.z=window.scrollY*0.001
 
             camera.rotation.y=window.scrollY*0.003
+
             const skillsBox = document.getElementById("homeSkillsBox");
-            if(window.scrollY > 1100){
-                skillsBox.style.animationName= "homeSkillsBoxAnimationOn"
-            }
-            else{
-                skillsBox.style.animationName= "homeSkillsBoxAnimationOff"
-            }
+
+      if (window.scrollY > 1000) {
+        skillsBox.style.animationName = "homeskillsBoxAnimationOn";
+      } else {
+        skillsBox.style.animationName = "homeskillsBoxAnimationOff";
+      }
+            
         })
     },[])
     

@@ -199,7 +199,7 @@ transform-style: preserve-3d;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-
+    
 }
 
 .homeSkillsBox > svg{
@@ -252,23 +252,25 @@ transform-style: preserve-3d;
     }
 }
 
-@keyframes homeSkillsBoxAnimationOn{
-from{
-right: -300px;
-}
-to{
-right: 40px;
-}
-}
+@keyframes homeskillsBoxAnimationOn {
+    from {
+      right: -300px;
+    }
+    to {
+      right: 40px;
+    }
+  }
+  
+  @keyframes homeskillsBoxAnimationOff {
+    from {
+      right: 40px;
+    }
+    to {
+      right: -300px;
+    }
+  }
 
-@keyframes homeSkillsBoxAnimationOff{
-    from{
-        right: 40px;
-    }
-    to{
-        right: -300px;
-    }
-}
+
 
 @keyframes scrollPop{
     to{
